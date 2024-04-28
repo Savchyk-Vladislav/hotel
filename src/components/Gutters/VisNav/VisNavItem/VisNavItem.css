@@ -1,0 +1,69 @@
+.visnav-item {
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+.visnav-item:hover .overlay {
+    opacity: 1;
+}
+
+.visnav-item img {
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+.visnav-item h3 {
+    width: 65%;
+    font-size: 1.2em;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    color: #216245;
+    position: absolute;
+    top: -270px;
+    background-color: aliceblue;
+    padding: 10px 10px;
+    z-index: 2;
+}
+
+.overlay {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: -286px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(1, 34, 19, 0.9);
+    z-index: 1;
+}
+
+.overlay p {
+    position: relative;
+    top: 100px;
+    text-align: left;
+    padding-left: 30px;
+    padding-right: 50px;
+    font-size: 1.2em;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    max-height: 200px;
+    transition: transform .5s ease, filter .5s ease; 
+    transform: translateX(-50px); 
+    filter: blur(5px);
+    visibility: hidden; 
+}
+
+.overlay:hover p {
+    transition: transform .5s ease, filter .5s ease;
+    transform: translateX(0); 
+    filter: blur(0); 
+    visibility: visible; 
+}

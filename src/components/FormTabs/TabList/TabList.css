@@ -1,0 +1,37 @@
+.tab-list {
+    width: 1350px;
+    height: 47px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    list-style: none;
+    margin-top: 16px;
+}
+
+#tab1 {
+    border-top-left-radius: 10px;
+}
+
+#tab3 {
+    border-top-right-radius: 10px;
+}
+
+button {
+    cursor: pointer;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    padding: 0; 
+    font: inherit; 
+    outline: none;
+}
+
+span {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.3em;
+}

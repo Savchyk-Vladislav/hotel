@@ -1,0 +1,88 @@
+.email-subscribe {
+    height: 506px;
+    width: auto;
+    background-color: #1c4a33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.email-subscribe-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 530px;
+}
+
+.email-subscribe-container h2 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.5em;
+    color: white;
+}
+
+.email-subscribe-container p {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.name-email {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.name-email-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.name-email-item label {
+    color: white;
+}
+
+.name-email-item input {
+    height: 25px;
+    padding: 5px 10px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
+}
+
+.radio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.radio label {
+    color: white;
+}
+
+.footer-form-btn {
+    background: #ffffff;
+    border: 0px solid black;
+    border-radius: 3px;
+    color: #1c4a33;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 120%;
+    padding: 12px 20px;
+    text-decoration: none;
+    min-width: 0px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}

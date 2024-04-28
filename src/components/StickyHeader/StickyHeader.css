@@ -1,0 +1,11 @@
+.sticky-header {
+    position: fixed;
+    width: 120px;
+    height: 32px;
+    right: 25px;
+    top: 12px;
+    display: flex;
+    overflow: hidden;
+    gap: 12px;
+    z-index: 1001;
+}
