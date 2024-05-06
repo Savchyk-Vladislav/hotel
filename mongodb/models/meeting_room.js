@@ -15,12 +15,12 @@ const meetingRoomSchema = new Schema({
         type: Number,
         required: true,
     },
-    price_per_hour: {
-        type: Number,
-        required: true,
-    },
     availability: {
         type: String,
+        required: true,
+    },
+    price: {
+        type: Number,
         required: true,
     }
 });
