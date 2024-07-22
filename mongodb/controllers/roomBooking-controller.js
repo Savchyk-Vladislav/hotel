@@ -8,5 +8,15 @@ const getAllRoomBookings = (req, res) => {
     })
 };
 
+const addRoomBooking = (req, res) => {
+    const newBooking = new RoomBooking(req.body);
+
+    newBooking.save().then((booking) => {
+        res.status(201).json(booking);
+    }).catch((err) => {
+        res.status(500).json({error: err.message});
+    });
+};
+
 // Експортуємо контролери
-module.exports = {getAllRoomBookings};
+module.exports = {getAllRoomBookings, addRoomBooking};

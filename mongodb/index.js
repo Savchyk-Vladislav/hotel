@@ -65,4 +65,4 @@ async function updateRoomAvailability() {
     console.log('Room availability updated');
 }
 
-setInterval(updateRoomAvailability, 1000);
+setInterval(updateRoomAvailability, 60 * 1000);

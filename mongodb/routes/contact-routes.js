@@ -6,9 +6,7 @@ const {
 
 const router = express.Router();
 
-// Перегляд всіх кімнат
 router.get('/contacts', getAllContact);
-
 router.post('/contacts', addContact);
 
 module.exports = router;

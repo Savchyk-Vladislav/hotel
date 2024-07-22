@@ -1,11 +1,12 @@
 const express = require('express');
 const {
-    getAllMeetingRoomBookings
+    getAllMeetingRoomBookings,
+    addMeetingRoomBooking
 } = require('../controllers/meetingRoomBooking-controller.js');
 
 const router = express.Router();
 
-// Перегляд всіх кімнат
 router.get('/meetingroombookings', getAllMeetingRoomBookings);
+router.post('/meetingroombookings', addMeetingRoomBooking);
 
 module.exports = router;

@@ -8,5 +8,4 @@ const getAllRooms = (req, res) => {
     })
 };
 
-// Експортуємо контролери
 module.exports = {getAllRooms};

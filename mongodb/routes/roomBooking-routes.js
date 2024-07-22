@@ -1,11 +1,12 @@
 const express = require('express');
 const {
-    getAllRoomBookings
+    getAllRoomBookings,
+    addRoomBooking
 } = require('../controllers/roomBooking-controller.js');
 
 const router = express.Router();
 
-// Перегляд всіх кімнат
 router.get('/roombookings', getAllRoomBookings);
+router.post('/roombookings', addRoomBooking);
 
 module.exports = router;

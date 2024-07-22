@@ -5,7 +5,6 @@ const {
 
 const router = express.Router();
 
-// Перегляд всіх кімнат
 router.get('/meetingrooms', getAllMeetingRooms);
 
 module.exports = router;

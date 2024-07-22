@@ -1,28 +1,90 @@
+import React, { useState } from 'react';
 import './Tab3.css';
-import Button from '../../Button/Button';
 
 export default function Tab3() {
-    return(
+    const [client_name, setClientName] = useState('');
+    const [phone_number, setPhoneNumber] = useState('');
+    const [email, setEmail] = useState('');
+    const [subject, setSubject] = useState('');
+    const [message, setMessage] = useState('');
+    const [how_contacted, setHowContacted] = useState([]);
+    const [when_contacted, setWhenContacted] = useState([]);
+    const [formStatus, setFormStatus] = useState('');
+
+    const handleContactWayChange = (event) => {
+        if (event.target.checked) {
+            setHowContacted([...how_contacted, event.target.name]);
+        } else {
+            setHowContacted(how_contacted.filter(item => item !== event.target.name));
+        }
+    };
+
+    const handleContactTimeChange = (event) => {
+        if (event.target.checked) {
+            setWhenContacted([...when_contacted, event.target.name]);
+        } else {
+            setWhenContacted(when_contacted.filter(item => item !== event.target.name));
+        }
+    };
+
+    const handleClick = async (event) => {
+        event.preventDefault();
+
+        let contact = {
+            client_name,
+            phone_number,
+            email,
+            subject,
+            message,
+            how_contacted: how_contacted.join(', '),
+            when_contacted: when_contacted.join(', '),  
+        };
+        for (let field in contact) {
+            if (!contact[field]) {
+                setFormStatus('Please fill out all fields!!!');
+                return;
+            }
+        }
+        contact = {...contact, processed: false};
+        try {
+            const response = await fetch('http://localhost:5000/contacts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(contact),
+            });
+            if (response.ok) {
+                setFormStatus('The application has been successfully processed!');
+            } else {
+                throw new Error('Помилка серверу');
+            }
+        } catch (error) {
+            setFormStatus('An error occurred while sending data.');
+        }
+    };
+
+    return (
         <div className="tab-2-pane">
             <div className="skinny-forms">
                 <form id="contact-us-form">
                     <div className="column-tab3">
                         <div className="field">
                             <label htmlFor="contactName">Name</label>
-                            <input required type="text" name="contactName" className="input" placeholder="Name" id="contactName"></input>
+                            <input required type="text" name="client_name" className="input" placeholder="Name" id="contactName" value={client_name} onChange={(e) => setClientName(e.target.value)}></input>
                         </div>
                         <div className="field">
                             <label htmlFor="contactTelephone">Telephone</label>
-                            <input required type="text" name="contactTelephone" className="input" placeholder="Telephone" id="contactTelephone"></input>
+                            <input required type="text" name="phone_number" className="input" placeholder="Telephone" id="contactTelephone" value={phone_number} onChange={(e) => setPhoneNumber(e.target.value)}></input>
                         </div>
                         <div className="field">
                             <label htmlFor="contactEmail">Email</label>
-                            <input required type="email" name="contactEmail" className="input" placeholder="Email" id="contactEmail"></input>
+                            <input required type="email" name="email" className="input" placeholder="Email" id="contactEmail" value={email} onChange={(e) => setEmail(e.target.value)}></input>
                         </div>
                         <div className="field">
                             <label htmlFor="subject" id="label-for-subject">Subject</label>
-                            <select name="subject" id="contactSubject" required>
-                                <option selected="selected" value>
+                            <select name="subject" id="contactSubject" required value={subject} onChange={(e) => setSubject(e.target.value)}>
+                                <option id="subject-please-select-a-subject" value="Please select a subject">
                                     Please select a subject
                                 </option>
                                 <option id="subject-reservations" value="Reservations">
@@ -64,17 +126,17 @@ export default function Tab3() {
                     <div className="column-tab3">
                         <div className="field">
                             <label htmlFor="contactMessage">Message</label>
-                            <textarea required type="text" name="contactMessage" className="textarea" placeholder="How can we help you?" id="contactMessage"></textarea>
+                            <textarea required type="text" name="message" className="textarea" placeholder="How can we help you?" id="contactMessage" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
                         </div>
                         <div className="field">
                             <label htmlFor="contactWay">How would you like to be contacted?</label>
                             <div className="for-checkboxes">
                                 <div className="for-checkbox">
-                                    <input type="checkbox" name="contactWayPhone" className="input" id="contactWayPhone"></input>
+                                    <input type="checkbox" name="Phone" className="input" id="contactWayPhone" onChange={handleContactWayChange}></input>
                                     <label htmlFor="contactWayPhone">Phone</label>
                                 </div>
                                 <div className="for-checkbox">
-                                    <input type="checkbox" name="contactWayEmail" className="input" id="contactWayEmail"></input>
+                                    <input type="checkbox" name="Email" className="input" id="contactWayEmail" onChange={handleContactWayChange}></input>
                                     <label htmlFor="contactWayEmail">Email</label>
                                 </div>
                             </div>
@@ -83,15 +145,15 @@ export default function Tab3() {
                             <label htmlFor="contactWay">What time of day would you like to be contacted?</label>
                             <div className="for-checkboxes">
                                 <div className="for-checkbox">
-                                    <input type="checkbox" name="contactTimeMorning" className="input" id="contactTimeMorning"></input>
+                                    <input type="checkbox" name="Morning" className="input" id="contactTimeMorning" onChange={handleContactTimeChange}></input>
                                     <label htmlFor="contactTimeMorning">Morning</label>
                                 </div>
                                 <div className="for-checkbox">
-                                    <input type="checkbox" name="contactTimeAfternoon" className="input" id="contactTimeAfternoon"></input>
+                                    <input type="checkbox" name="Afternoon" className="input" id="contactTimeAfternoon" onChange={handleContactTimeChange}></input>
                                     <label htmlFor="contactTimeAfternoon">Afternoon</label>
                                 </div>
                                 <div className="for-checkbox">
-                                    <inputY type="checkbox" name="contactTimeEvening" className="input" id="contactTimeEvening"></inputY>
+                                    <input type="checkbox" name="Evening" className="input" id="contactTimeEvening" onChange={handleContactTimeChange}></input>
                                     <label htmlFor="contactTimeEvening">Evening</label>
                                 </div>
                             </div>
@@ -99,7 +161,10 @@ export default function Tab3() {
                     </div>
                     <div className="column-tab3">
                         <div className="field">
-                            <Button text="send" className="form-btn"/>
+                        <button className="btn form-btn" onClick={handleClick}>
+                            Send
+                        </button>
+                        {formStatus && <p>{formStatus}</p>}
                         </div>
                         <div className="field">
                             <div className="for-labels">

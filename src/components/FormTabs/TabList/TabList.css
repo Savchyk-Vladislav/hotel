@@ -2,7 +2,7 @@
     width: 1350px;
     height: 47px;
     justify-content: center;
-    align-items: center;
+    align-items: end;
     display: flex;
     flex-grow: 1;
     flex-shrink: 0;

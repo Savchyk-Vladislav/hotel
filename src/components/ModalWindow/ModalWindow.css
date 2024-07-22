@@ -1,0 +1,49 @@
+.modal-window-back {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1002;
+    backdrop-filter: blur(10px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-window {
+    width: 1700px;
+    height: 800px;
+    background-color: white;
+    border: 2px solid #216245;
+    border-radius: 20px;
+    position: relative;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.modal-window.show {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.closeBtn {
+    width: 20px;
+    height: 20px;
+}
+
+.modal-window button:hover .closeBtn {
+    width: 16px;
+    height: 16px;
+}
+
+.modal-window button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

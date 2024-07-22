@@ -37,7 +37,7 @@ export default function StayWithUs() {
                     </p>
                     <p></p>
                     <p></p>
-                    <Button icon={message} text="Contact our hotel" className="contact-with-us-btn"/>
+                    <Button icon={message} text="Contact our hotel" className="contact-with-us-btn" href="#contact"/>
                 </div>
             </div>
         </div>

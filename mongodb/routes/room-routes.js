@@ -5,7 +5,7 @@ const {
 
 const router = express.Router();
 
-// Перегляд всіх кімнат
 router.get('/rooms', getAllRooms);
 
 module.exports = router;
+

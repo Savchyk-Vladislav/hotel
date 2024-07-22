@@ -1,0 +1,87 @@
+.book-room {
+    width: 100%;
+    height: 100%;
+}
+
+.book-room-container {
+    width: 100%;
+    height: 100%;
+}
+
+.book-room-container form {
+    position: relative;
+    top: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.book-room-container form label {
+    font-size: 18px;
+}
+
+.book-room-container form input {
+    border: 1px solid black;
+}
+
+.book-room-container form select {
+    border: 1px solid black;
+}
+
+.book-room-container-column { 
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bookroom {
+    padding: 20px 140px 20px 140px !important;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#roomNumber {
+    position: relative;
+    left: 0;
+}
+
+#roomType {
+    position: relative;
+    left: 0;
+}
+
+.book-room-container-column h2 {
+    font-size: 40px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    color: #216245;
+    transform: skew(-15deg);
+}
+
+.book-room-container-column p {
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #216245;
+}
+
+.alert {
+    font-size: 22px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    color: red;
+    text-align: center;
+}
